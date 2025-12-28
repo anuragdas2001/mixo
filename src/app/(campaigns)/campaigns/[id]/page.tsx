@@ -5,6 +5,7 @@ import {
   getStatusColor,
 } from "@/lib/helper";
 import { getCampaignsById } from "@/services/campaigns";
+import Link from "next/link";
 
 const CampaignsPage = async ({
   params,
@@ -18,7 +19,7 @@ const CampaignsPage = async ({
     return (
       <div className="min-h-screen flex items-center justify-center">
         <h2 className="text-2xl font-semibold text-slate-900">
-         404 Campaign does not exist.
+          404 Campaign does not exist.
         </h2>
       </div>
     );
@@ -26,40 +27,43 @@ const CampaignsPage = async ({
   console.log("campaign details page:", campaign);
   return (
     <div className="min-h-screen  p-6">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="mb-8">
-          <div className="flex items-center gap-2 text-sm text-slate-600 mb-3">
-            <span>Campaigns</span>
-            <span>/</span>
-            <span className="text-slate-900 font-medium">{campaign.name}</span>
-          </div>
           <h1 className="text-4xl font-bold text-slate-900 mb-2">
             {campaign.name}
           </h1>
           <p className="text-slate-600">Campaign ID: {campaign.id}</p>
+          <p className="text-slate-600">Brand ID: {campaign.brand_id}</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="">
           {/* Main Content */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className=" space-y-6">
             {/* Status Card */}
             <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
               <h2 className="text-lg font-semibold text-slate-900 mb-4">
                 Status
               </h2>
-              <div className="flex items-center gap-3">
-                <span
-                  className={`px-4 py-2 rounded-full text-sm font-medium border ${getStatusColor(
-                    campaign.status
-                  )}`}
-                >
-                  {campaign.status.charAt(0).toUpperCase() +
-                    campaign.status.slice(1)}
-                </span>
-                <span className="text-sm text-slate-500">
-                  Created {formatDate(campaign.created_at)}
-                </span>
+              <div className="flex justify-between items-center gap-3">
+                <div className="flex flex-col gap-2">
+                  <span
+                    className={`px-4 py-2 rounded-full text-sm font-medium border ${getStatusColor(
+                      campaign.status
+                    )}`}
+                  >
+                    {campaign.status.charAt(0).toUpperCase() +
+                      campaign.status.slice(1)}
+                  </span>
+                  <span className="text-sm text-slate-500">
+                    Created {formatDate(campaign.created_at)}
+                  </span>
+                </div>
+                <Link href={`/campaigns/${campaign.id}/insights`}>
+                  <span className="text-sm text-blue-600 hover:text-blue-800">
+                    View Insights
+                  </span>
+                </Link>
               </div>
             </div>
 
@@ -68,7 +72,7 @@ const CampaignsPage = async ({
               <h2 className="text-lg font-semibold text-slate-900 mb-6">
                 Budget Overview
               </h2>
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-5 border border-blue-200">
                   <div className="text-sm font-medium text-blue-900 mb-2">
                     Total Budget
@@ -83,10 +87,6 @@ const CampaignsPage = async ({
                   </div>
                   <div className="text-3xl font-bold text-purple-900">
                     {formatCurrency(campaign.daily_budget)}
-                  </div>
-                  <div className="text-xs text-purple-700 mt-2">
-                    {Math.floor(campaign.budget / campaign.daily_budget)} days
-                    max
                   </div>
                 </div>
               </div>
@@ -114,46 +114,6 @@ const CampaignsPage = async ({
                     </div>
                   );
                 })}
-              </div>
-            </div>
-          </div>
-
-          {/* Sidebar */}
-          <div className="space-y-6">
-            {/* Quick Stats */}
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
-              <h2 className="text-lg font-semibold text-slate-900 mb-4">
-                Details
-              </h2>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center pb-3 border-b border-slate-100">
-                  <span className="text-sm text-slate-600">Brand ID</span>
-                  <span className="text-sm font-medium text-slate-900">
-                    {campaign.brand_id}
-                  </span>
-                </div>
-                <div className="flex justify-between items-center pb-3 border-b border-slate-100">
-                  <span className="text-sm text-slate-600">Campaign ID</span>
-                  <span className="text-sm font-medium text-slate-900">
-                    {campaign.id}
-                  </span>
-                </div>
-                <div className="flex justify-between items-center pb-3 border-b border-slate-100">
-                  <span className="text-sm text-slate-600">Status</span>
-                  <span
-                    className={`text-xs px-3 py-1 rounded-full font-medium ${getStatusColor(
-                      campaign.status
-                    )}`}
-                  >
-                    {campaign.status}
-                  </span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-slate-600">Platforms</span>
-                  <span className="text-sm font-medium text-slate-900">
-                    {campaign.platforms.length}
-                  </span>
-                </div>
               </div>
             </div>
           </div>
