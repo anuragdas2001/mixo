@@ -21,3 +21,16 @@ export const getCampaignsById = async (id: string) => {
   const data = await res.json();
   return data;
 };
+
+export const getInsights = async (id: string) => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/campaigns/${id}/insights`,
+    {
+      cache: "no-store",
+    }
+  );
+  const data = await res.json();
+  return data;
+};
+
+
