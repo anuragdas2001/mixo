@@ -11,7 +11,7 @@ export const getCampaignsInsights = async () => {
   return data;
 };
 
-export const getCampaignsInsightsById = async (id: number) => {
+export const getCampaignsInsightsById = async (id: string) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/campaigns/insights/${id}`,
     {
