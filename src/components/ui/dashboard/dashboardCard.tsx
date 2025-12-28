@@ -14,17 +14,32 @@ function DashboardCard({
   value,
   description,
   footer,
+  icon,
+  iconColor = "text-gray-600",
+  iconBgColor = "bg-gray-100",
 }: IDashboardCardProps) {
-  console.log("value", value);
   return (
-    <Card className="w-full max-w-sm">
+    <Card className="w-full max-w-sm transition-shadow hover:shadow-md">
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
-        {description && <CardDescription>{description}</CardDescription>}
+        <div className="flex items-center justify-between">
+          <div className="flex-1">
+            <CardTitle className="text-base font-semibold">{title}</CardTitle>
+            {description && (
+              <CardDescription className="mt-1">{description}</CardDescription>
+            )}
+          </div>
+          {icon && (
+            <div
+              className={`flex h-12 w-12 items-center justify-center rounded-lg ${iconBgColor}`}
+            >
+              <div className={iconColor}>{icon}</div>
+            </div>
+          )}
+        </div>
       </CardHeader>
 
       <CardContent>
-        <p className="text-3xl font-bold">{value}</p>
+        <p className="text-3xl font-bold text-gray-900">{value}</p>
       </CardContent>
 
       {footer && (

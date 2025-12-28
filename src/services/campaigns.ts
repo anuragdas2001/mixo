@@ -11,7 +11,7 @@ export const getCampaigns = async () => {
   return data;
 };
 
-export const getCampaignsById = async (id: number) => {
+export const getCampaignsById = async (id: string) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/campaigns/${id}`,
     {

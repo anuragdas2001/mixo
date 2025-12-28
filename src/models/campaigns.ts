@@ -7,6 +7,11 @@ export interface ICampaigns {
   status: TStatus;
   budget: number;
   daily_budget: number;
-  platforms: string;
+  platforms: string[];
   created_at: Date;
+}
+
+export interface ICampaignsList {
+  campaigns: ICampaigns[];
+  total: number;
 }
