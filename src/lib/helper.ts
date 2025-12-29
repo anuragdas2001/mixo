@@ -56,5 +56,13 @@ const formatDate = (dateString: string) => {
     year: "numeric",
   });
 };
+const formatNumber = (num: number) =>
+  new Intl.NumberFormat("en-US").format(num);
 
-export { getStatusColor, getPlatformIcon, formatCurrency, formatDate };
+export {
+  getStatusColor,
+  getPlatformIcon,
+  formatCurrency,
+  formatDate,
+  formatNumber,
+};
