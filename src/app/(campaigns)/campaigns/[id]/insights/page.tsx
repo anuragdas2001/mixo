@@ -72,7 +72,15 @@ const PERFORMANCE_METRIC_CONFIGS: Omit<IPerformanceMetric, "value">[] = [
 const CampaignInsights = async ({ params }: ICampaignInsightsProps) => {
   const { id } = await params;
   const { insights } = await getInsights(id);
-
+  if (!insights) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <h2 className="text-2xl font-semibold text-slate-700">
+          No insights available for this campaign.
+        </h2>
+      </div>
+    );
+  }
   // Build metrics with actual data
   const metrics: IMetric[] = [
     { ...METRIC_CONFIGS[0], value: formatNumber(insights.impressions) },
