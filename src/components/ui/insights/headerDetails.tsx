@@ -32,7 +32,7 @@ const HeaderDetails = ({
             onClick={() =>
               router.push(`/campaigns/${campaignId}/insights/streams`)
             }
-            className="bg-green-400 h-10 px-4 py-2 rounded-2xl "
+            className=" h-10 px-4 py-2 rounded-2xl "
           >
             View streams
           </Button>
