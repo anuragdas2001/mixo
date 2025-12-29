@@ -52,7 +52,7 @@ const DashboardCardItems = ({
       <div className="mx-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <DashboardCard
           title="Total Campaigns"
-          value={formatValue(insights.total_campaigns)}
+          value={formatValue(insights?.total_campaigns)}
           description="All campaigns created"
           icon={<BarChart3 className="h-5 w-5" />}
           iconColor="text-blue-600"
@@ -61,7 +61,7 @@ const DashboardCardItems = ({
 
         <DashboardCard
           title="Active Campaigns"
-          value={formatValue(insights.active_campaigns)}
+          value={formatValue(insights?.active_campaigns)}
           description="Currently running"
           icon={<TrendingUp className="h-5 w-5" />}
           iconColor="text-green-600"
@@ -70,7 +70,7 @@ const DashboardCardItems = ({
 
         <DashboardCard
           title="Total Impressions"
-          value={formatValue(insights.total_impressions)}
+          value={formatValue(insights?.total_impressions)}
           description="Across all campaigns"
           icon={<Eye className="h-5 w-5" />}
           iconColor="text-purple-600"
@@ -79,7 +79,7 @@ const DashboardCardItems = ({
 
         <DashboardCard
           title="Avg CTR"
-          value={formatCTR(insights.avg_ctr)}
+          value={formatCTR(insights?.avg_ctr)}
           footer="Click-through rate"
           icon={<MousePointerClick className="h-5 w-5" />}
           iconColor="text-orange-600"
