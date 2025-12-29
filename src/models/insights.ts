@@ -1,3 +1,5 @@
+import { LucideIcon } from "lucide-react";
+
 export interface IInsights {
   timestamp: string;
   total_campaigns: number;
@@ -13,6 +15,18 @@ export interface IInsights {
   avg_conversion_rate: number;
 }
 
+export interface IInsightData {
+  campaign_id: string;
+  timestamp: string;
+  impressions: number;
+  clicks: number;
+  conversions: number;
+  spend: number;
+  ctr: number;
+  cpc: number;
+  conversion_rate: number;
+}
+
 export interface ICampaignInsights {
   insights: IInsights;
 }
@@ -21,5 +35,26 @@ export interface IDashboardCardProps {
   value: string | number;
   description?: string;
   footer?: string;
+}
+
+// Types
+export interface IMetric {
+  title: string;
+  value: string;
+  icon: LucideIcon;
+  bgColor: string;
+  iconColor: string;
+}
+
+export interface IPerformanceMetric {
+  label: string;
+  value: string;
+  description: string;
+  color: string;
+  bgColor: string;
+}
+
+export interface ICampaignInsightsProps {
+  params: Promise<{ id: string }>;
 }
 
