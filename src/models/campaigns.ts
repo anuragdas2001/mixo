@@ -15,3 +15,4 @@ export interface ICampaignsList {
   campaigns: ICampaigns[];
   total: number;
 }
+
