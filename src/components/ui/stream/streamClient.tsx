@@ -75,7 +75,7 @@ export default function StreamsClient({
 
   if (streamError) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+      <div className="min-h-screen flex items-center justify-center">
         <div className="text-center space-y-4">
           <p className="text-lg font-semibold text-red-600">
             Failed to stream insights
