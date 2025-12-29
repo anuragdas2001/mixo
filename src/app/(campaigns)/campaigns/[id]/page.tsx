@@ -40,7 +40,7 @@ const CampaignsPage = () => {
     fetchCampaign();
   }, [id]);
 
-  // 🔄 Loading state
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -49,7 +49,7 @@ const CampaignsPage = () => {
     );
   }
 
-  // ❌ Not found state
+  
   if (notFound) {
     return (
       <div className="min-h-screen flex items-center justify-center">
