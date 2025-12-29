@@ -17,7 +17,7 @@ export const TimelineItem = ({ insight, index }: ITimelineItemProps) => {
           <div className="flex items-center gap-2">
             <Clock className="w-4 h-4 text-slate-500" />
             <span className="text-sm font-medium text-slate-700">
-              {formatTime(insight.timestamp)}
+              {formatTime(insight?.timestamp)}
             </span>
           </div>
           <div className="flex items-center gap-1.5 px-2.5 py-1 bg-green-50 rounded-full">
@@ -30,25 +30,25 @@ export const TimelineItem = ({ insight, index }: ITimelineItemProps) => {
           <div>
             <p className="text-xs text-slate-500 mb-1">Impressions</p>
             <p className="text-lg font-bold text-slate-800">
-              {formatNumber(insight.impressions)}
+              {formatNumber(insight?.impressions)}
             </p>
           </div>
           <div>
             <p className="text-xs text-slate-500 mb-1">Clicks</p>
             <p className="text-lg font-bold text-slate-800">
-              {formatNumber(insight.clicks)}
+              {formatNumber(insight?.clicks)}
             </p>
           </div>
           <div>
             <p className="text-xs text-slate-500 mb-1">Conversions</p>
             <p className="text-lg font-bold text-slate-800">
-              {formatNumber(insight.conversions)}
+              {formatNumber(insight?.conversions)}
             </p>
           </div>
           <div>
             <p className="text-xs text-slate-500 mb-1">Spend</p>
             <p className="text-lg font-bold text-slate-800">
-              {formatCurrency(insight.spend)}
+              {formatCurrency(insight?.spend)}
             </p>
           </div>
         </div>
@@ -57,19 +57,19 @@ export const TimelineItem = ({ insight, index }: ITimelineItemProps) => {
           <div className="text-center">
             <p className="text-xs text-slate-500 mb-1">CTR</p>
             <p className="text-sm font-semibold text-blue-600">
-              {insight.ctr}%
+              {insight?.ctr}%
             </p>
           </div>
           <div className="text-center">
             <p className="text-xs text-slate-500 mb-1">CPC</p>
             <p className="text-sm font-semibold text-purple-600">
-              {formatCurrency(insight.cpc)}
+              {formatCurrency(insight?.cpc)}
             </p>
           </div>
           <div className="text-center">
             <p className="text-xs text-slate-500 mb-1">Conv. Rate</p>
             <p className="text-sm font-semibold text-green-600">
-              {insight.conversion_rate}%
+              {insight?.conversion_rate}%
             </p>
           </div>
         </div>
