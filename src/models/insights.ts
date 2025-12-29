@@ -1,4 +1,5 @@
 import { LucideIcon } from "lucide-react";
+import React from "react";
 
 export interface IInsights {
   timestamp: string;
@@ -35,6 +36,9 @@ export interface IDashboardCardProps {
   value: string | number;
   description?: string;
   footer?: string;
+  icon: React.ReactNode;
+  iconColor?: string;
+  iconBgColor?: string;
 }
 
 // Types
@@ -57,4 +61,3 @@ export interface IPerformanceMetric {
 export interface ICampaignInsightsProps {
   params: Promise<{ id: string }>;
 }
-
