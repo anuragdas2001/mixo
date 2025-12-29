@@ -16,3 +16,23 @@ export interface ICampaignsList {
   total: number;
 }
 
+export interface ICampaignHeaderProps {
+  name: string;
+  id: string;
+  brandId: string;
+}
+
+export interface ICampaignPlatformsProps {
+  platforms: string[];
+}
+
+export interface ICampaignBudgetProps {
+  budget: number;
+  dailyBudget: number;
+}
+
+export interface ICampaignStatusProps {
+  id: string;
+  status: string;
+  createdAt: string;
+}
