@@ -48,7 +48,13 @@ const formatCurrency = (amount: number) => {
     maximumFractionDigits: 0,
   }).format(amount);
 };
-
+const formatTime = (timestamp: string) => {
+  return new Date(timestamp).toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  });
+};
 const formatDate = (dateString: string) => {
   return new Date(dateString).toLocaleDateString("en-US", {
     month: "short",
@@ -63,6 +69,7 @@ export {
   getStatusColor,
   getPlatformIcon,
   formatCurrency,
+  formatTime,
   formatDate,
   formatNumber,
 };
