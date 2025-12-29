@@ -1,6 +1,7 @@
+import { IMetricTrendProps } from "@/models/stream";
 import { TrendingUp, TrendingDown } from "lucide-react";
 
-const MetricTrend = ({ current, previous, suffix = "", prefix = "" }: MetricTrendProps) => {
+const MetricTrend = ({ current, previous, suffix = "", prefix = "" }: IMetricTrendProps) => {
   if (!previous) return null;
   
   const change = ((current - previous) / previous) * 100;
@@ -16,3 +17,5 @@ const MetricTrend = ({ current, previous, suffix = "", prefix = "" }: MetricTren
     </div>
   );
 };
+
+export default MetricTrend;

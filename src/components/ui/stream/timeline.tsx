@@ -1,32 +1,16 @@
+import { formatCurrency, formatNumber, formatTime } from "@/lib/helper";
+import { ITimelineItemProps } from "@/models/stream";
 import { Clock, Activity } from "lucide-react";
 
-export const TimelineItem = ({ insight, index }: TimelineItemProps) => {
-  const formatTime = (timestamp: string) => {
-    return new Date(timestamp).toLocaleTimeString("en-US", {
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-    });
-  };
-
-  const formatNumber = (num: number) => 
-    new Intl.NumberFormat("en-US").format(num);
-
-  const formatCurrency = (amount: number) =>
-    new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-      minimumFractionDigits: 2,
-    }).format(amount);
-
+export const TimelineItem = ({ insight, index }: ITimelineItemProps) => {
   return (
     <div className="relative pl-8 pb-8 last:pb-0">
       {/* Timeline line */}
       <div className="absolute left-2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-indigo-500 to-purple-500 last:bg-none" />
-      
+
       {/* Timeline dot */}
       <div className="absolute left-0 top-1 w-5 h-5 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 border-4 border-white shadow-lg" />
-      
+
       {/* Content */}
       <div className="bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-all p-5">
         <div className="flex items-center justify-between mb-4">
@@ -72,7 +56,9 @@ export const TimelineItem = ({ insight, index }: TimelineItemProps) => {
         <div className="mt-4 pt-4 border-t border-slate-100 grid grid-cols-3 gap-4">
           <div className="text-center">
             <p className="text-xs text-slate-500 mb-1">CTR</p>
-            <p className="text-sm font-semibold text-blue-600">{insight.ctr}%</p>
+            <p className="text-sm font-semibold text-blue-600">
+              {insight.ctr}%
+            </p>
           </div>
           <div className="text-center">
             <p className="text-xs text-slate-500 mb-1">CPC</p>

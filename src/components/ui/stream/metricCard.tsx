@@ -1,4 +1,7 @@
-export const MetricCard = ({ title, value, trend, icon: Icon, colorScheme }: MetricCardProps) => (
+import { IMetricCardProps } from "@/models/stream";
+import MetricTrend from "./metricTrend";
+
+export const MetricCard = ({ title, value, trend, icon: Icon, colorScheme }: IMetricCardProps) => (
   <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-4 hover:shadow-md transition-shadow">
     <div className="flex items-start justify-between mb-3">
       <div className={`p-2 ${colorScheme.bg} rounded-lg`}>
