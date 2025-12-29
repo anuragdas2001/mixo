@@ -98,7 +98,7 @@ const CampaignsPage = async ({
                 Platforms
               </h2>
               <div className="flex flex-wrap gap-3">
-                {campaign.platforms.map((platform, index) => {
+                {campaign.platforms.map((platform: string, index: number) => {
                   const PlatformIcon = getPlatformIcon(platform);
                   return (
                     <div

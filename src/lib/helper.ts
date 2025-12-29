@@ -55,7 +55,7 @@ const formatTime = (timestamp: string) => {
     second: "2-digit",
   });
 };
-const formatDate = (dateString: string) => {
+const formatDate = (dateString: string | Date) => {
   return new Date(dateString).toLocaleDateString("en-US", {
     month: "short",
     day: "numeric",

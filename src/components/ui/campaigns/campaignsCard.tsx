@@ -17,16 +17,7 @@ import {
   getStatusColor,
 } from "@/lib/helper";
 import Link from "next/link";
-interface ICampaigns {
-  id: string;
-  name: string;
-  brand_id: string;
-  status: string;
-  budget: number;
-  daily_budget: number;
-  platforms: string[];
-  created_at: string;
-}
+import { ICampaigns } from "@/models/campaigns";
 
 const CampaignCard = ({
   id,

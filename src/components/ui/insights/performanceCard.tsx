@@ -1,4 +1,5 @@
-// Component: Performance Metric Card
+import { IPerformanceMetric } from "@/models/insights";
+
 const PerformanceMetricCard = ({ metric }: { metric: IPerformanceMetric }) => (
   <div className="p-6 bg-gradient-to-br from-slate-50 to-slate-100 rounded-xl border border-slate-200 hover:border-slate-300 transition-colors">
     <div className={`inline-block px-3 py-1 ${metric.bgColor} rounded-lg mb-3`}>
