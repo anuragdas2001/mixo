@@ -100,19 +100,21 @@ export default function StreamsClient({
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
         <div className="bg-white rounded-2xl shadow-lg p-6 border">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between flex-wrap gap-4">
             <div className="flex items-center gap-3">
               <div className="p-2 bg-indigo-600 rounded-xl">
                 <Radio className="text-white" />
               </div>
               <div>
-                <h1 className="text-3xl font-bold">Live Insight Stream</h1>
-                <p className="text-sm text-slate-500">
+                <h1 className="text-xs sm:text-sm md:text-xl lg:text-3xl font-bold">
+                  Live Insight Stream
+                </h1>
+                <p className="text-xs text-slate-500">
                   Campaign ID: {latest?.campaign_id}
                 </p>
               </div>
             </div>
-            <span className="text-sm font-semibold text-green-700">
+            <span className="text-xs font-semibold text-green-700">
               {insights?.length} Updates
             </span>
           </div>
